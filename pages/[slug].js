@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 
-const Product = ({addToCart,cart}) => {
+const Product = ({addToCart,cart,delet}) => {
     return (
    <>
    <section className="text-gray-600 body-font overflow-hidden">

@@ -6,7 +6,7 @@ import { AiFillCloseCircle } from 'react-icons/ai';
 import { BiPlusCircle,BiMinusCircle } from 'react-icons/bi';
 
 
-const Navbar = ({addToCart,cart}) => {
+const Navbar = ({addToCart,cart,deleteThisItemFromCart,subtotal}) => {
   console.log(cart)
     const ref = useRef()
     const toggle=()=>{
@@ -50,15 +50,16 @@ const Navbar = ({addToCart,cart}) => {
          
         {Object.keys(cart).map((curr)=>{
          return(
-         <li className='flex' key={curr}> 
+         <li className='flex mt-2' key={curr}> 
          <div className='w-2/3 bg-slate-400'>{cart[curr].price} </div>
          
-         <div onClick={()=>{addToCart(345,344,1,'red')}} className=" w-1/3 bg-slate-300 flex items-center justify-center "><BiPlusCircle className='mr-2'/>{cart[curr].qty}<BiMinusCircle className='ml-2'/></div>
-         
+         <div className=" w-1/3 bg-slate-300 flex items-center justify-center "><BiPlusCircle onClick={()=>{addToCart(345,344,1,'red')}} className='mr-2'/>{cart[curr].qty}<BiMinusCircle onClick={()=>{deleteThisItemFromCart(345,344,1,'red')}} className='ml-2'/></div>
          </li>
          )
         })}
     </ol>
+    <h1>Subtotal: Rs.{subtotal}</h1> 
+          <Link href='/checkout'><button className=" my-3 flex text-white bg-indigo-500 border-0 py-1 px-3 focus:outline-none hover:bg-indigo-600 rounded">Checkout</button></Link>
 </div>
     </>
   )
