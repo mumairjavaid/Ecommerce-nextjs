@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useRef } from 'react';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { BiPlusCircle,BiMinusCircle } from 'react-icons/bi';
+import { MdAccountCircle } from 'react-icons/md';
 
 
 const Navbar = ({addToCart,cart,deleteThisItemFromCart,subtotal}) => {
@@ -37,14 +38,15 @@ const Navbar = ({addToCart,cart,deleteThisItemFromCart,subtotal}) => {
       <Link className="mr-5 hover:text-gray-900" href='/'>Shirts</Link>
       <Link className="mr-5 hover:text-gray-900" href='/'>Contact Us</Link>
     </nav>
-    <button  onClick={toggle} className="inline-flex justify-end items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded mt-4 md:mt-0 font-bold text-lg p-8 ml-20 ">Cart
+    <Link href={'/login'}><MdAccountCircle className='text-xl ml-10 mr-3 '/></Link>
+    <button  onClick={toggle} className="inline-flex justify-end items-center bg-gray-100 border-0 py-1 focus:outline-none hover:bg-gray-200 rounded mt-4 md:mt-0 font-bold text-lg p-8  ">Cart
       <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 ml-1" viewBox="0 0 24 24">
         <path d="M5 12h14M12 5l7 7-7 7"></path>
       </svg>
     </button>
     </div>
 </header>
-<div ref={ref} className="sidebar w-60 absolute right-0 w=72 top-2 transform transform-translate translate-x-full p-8 bg-slate-400 ">
+<div ref={ref} className="sidebar w-[15%] absolute right-0 top-2 transform transform-translate translate-x-full p-8 bg-indigo-300 rounded ">
     <AiFillCloseCircle onClick={toggle} className="absolute top-3 right-3 cursor-pointer"/>
     <ol className="list-decimal"> 
          

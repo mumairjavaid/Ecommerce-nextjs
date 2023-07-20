@@ -33,18 +33,16 @@ const Checkout = ({cart,addToCart,deleteThisItemFromCart,subtotal}) => {
           <button className="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Place Order</button>
         </div>
         <h1 className=' mt-3 mb-4 text-xl font-bold text-center w-full'>Review Cart Items</h1>
-
-        <div className="sidebar w-full flex justify-center transform p-8 bg-slate-400 ">
+        <div className="sidebar w-full flex justify-center p-8 bg-indigo-300 rounded ">
         <ol className="list-decimal"> 
-         
-        {Object.keys(cart).map((curr)=>{
+        {(Object.keys(cart).length==0)?<h1>No product in the cart</h1>:(Object.keys(cart).map((curr)=>{
          return(
-         <li className='flex mt-2 space-x-4 ' key={curr}> 
+         <li className='flex mt-2 space-x-4' key={curr}> 
          <div className=' bg-slate-400'>{cart[curr].price} </div>
          <div className="  bg-slate-300 flex items-center justify-center   "><BiPlusCircle onClick={()=>{addToCart(345,344,1,'red')}} className='mr-2 font-xl'/>{cart[curr].qty}<BiMinusCircle onClick={()=>{deleteThisItemFromCart(345,344,1,'red')}} className='ml-2 text-xxl color-black-400'/></div>
          </li>
          )
-        })}
+        }))}
         </ol>
         </div>
         <h1 className='text-xl font-semibold'>Subtotal: Rs.{subtotal}</h1>
