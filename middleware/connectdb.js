@@ -1,7 +1,9 @@
-const connectdb = (handler) => {
+const connectdb = (handler) => async (req, res) => {
   if (mongoose.connections[0].activeState) {
     return handler(req, res);
   }
-  mongoose.connect("Mongodb_URI");
+  mongoose.connect(process.env.MONGO_URI);
   return handler(req, res);
 };
+
+export default connectdb;
