@@ -17,6 +17,8 @@ const addProducts = async (req, res) => {
         productId: req.body[i].productId,
         price: req.body[i].price,
         color: req.body[i].color,
+        size: req.body[i].size,
+        availableQty: req.body[i].availableQty,
         variant: req.body[i].variant,
       });
       await p.save();

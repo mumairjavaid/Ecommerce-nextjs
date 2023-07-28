@@ -7,6 +7,8 @@ const productSchema = new Schema(
     productId: { type: Number, required: true, unique: true },
     price: { type: Number, required: true },
     color: { type: String },
+    size: { type: String },
+    availableQty: { type: Number },
     variant: { type: String, required: true },
   },
   { timestamps: true }
