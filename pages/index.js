@@ -21,13 +21,24 @@ const index = ({ products }) => {
                       src={products[curr].variant}
                     />
                   </Link>
+                  <h2 className="text-gray-900 title-font text-lg font-medium">
+                    {products[curr].name}
+                  </h2>
                   <div className="mt-4">
                     <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                      {products[curr].color}
+                      {products[curr].color.includes("red") && (
+                        <button className="border-2 border-gray-300 ml-1 bg-red-500 rounded-full w-6 h-6 focus:outline-none"></button>
+                      )}
+                      {products[curr].color.includes("skyblue") && (
+                        <button className="border-2 border-gray-300 ml-1 bg-blue-500 rounded-full w-6 h-6 focus:outline-none"></button>
+                      )}
+                      {products[curr].color.includes("red") && (
+                        <button className="border-2 border-gray-300 ml-1 bg-cyan-500 rounded-full w-6 h-6 focus:outline-none"></button>
+                      )}
+                      {products[curr].color.includes("green") && (
+                        <button className="border-2 border-gray-300 ml-1 bg-green-500 rounded-full w-6 h-6 focus:outline-none"></button>
+                      )}
                     </h3>
-                    <h2 className="text-gray-900 title-font text-lg font-medium">
-                      {products[curr].name}
-                    </h2>
                     <p className="mt-1">Rs. {products[curr].price}</p>
                   </div>
                 </div>
