@@ -12,7 +12,7 @@ const index = ({ products }) => {
               return (
                 <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
                   <Link
-                    href="/page"
+                    href={`/${products[curr].slug}`}
                     className="block relative h-48 rounded overflow-hidden"
                   >
                     <img
@@ -29,11 +29,17 @@ const index = ({ products }) => {
                       {products[curr].color.includes("red") && (
                         <button className="border-2 border-gray-300 ml-1 bg-red-500 rounded-full w-6 h-6 focus:outline-none"></button>
                       )}
-                      {products[curr].color.includes("skyblue") && (
+                      {products[curr].color.includes("blue") && (
                         <button className="border-2 border-gray-300 ml-1 bg-blue-500 rounded-full w-6 h-6 focus:outline-none"></button>
                       )}
-                      {products[curr].color.includes("red") && (
+                      {products[curr].color.includes("skyblue") && (
+                        <button className="border-2 border-gray-300 ml-1 bg-sky-500 rounded-full w-6 h-6 focus:outline-none"></button>
+                      )}
+                      {products[curr].color.includes("cyan") && (
                         <button className="border-2 border-gray-300 ml-1 bg-cyan-500 rounded-full w-6 h-6 focus:outline-none"></button>
+                      )}
+                      {products[curr].color.includes("orange") && (
+                        <button className="border-2 border-gray-300 ml-1 bg-orange-500 rounded-full w-6 h-6 focus:outline-none"></button>
                       )}
                       {products[curr].color.includes("green") && (
                         <button className="border-2 border-gray-300 ml-1 bg-green-500 rounded-full w-6 h-6 focus:outline-none"></button>
