@@ -6,6 +6,7 @@ import Product from "../models/Product";
 const Item = ({ addToCart, product, variants }) => {
   const [color, setColor] = useState(product.color);
   const [size, setSize] = useState(product.size);
+  console.log(variants, "variants printing....");
 
   const refresh = (newcolor, newsize) => {
     let url = `localhost:3000/${variants[newcolor][newsize]["slug"]}`;
@@ -146,6 +147,15 @@ const Item = ({ addToCart, product, variants }) => {
                         className={`border-2 bg-blue-700 rounded-full w-6 h-6 color-white focus:outline-none`}
                       ></button>
                     )}
+                  {Object.keys(variants).includes("skyblue") &&
+                    Object.keys(variants["skyblue"]).includes(size) && (
+                      <button
+                        onClick={() => {
+                          refresh("skyblue", size);
+                        }}
+                        className={`border-2 bg-sky-700 rounded-full w-6 h-6 color-white focus:outline-none`}
+                      ></button>
+                    )}
                   {Object.keys(variants).includes("red") &&
                     Object.keys(variants["red"]).includes(size) && (
                       <button
@@ -196,12 +206,29 @@ const Item = ({ addToCart, product, variants }) => {
                       {Object.keys(variants[color]).includes("M") && (
                         <option value={"M"}>M</option>
                       )}
+                      ;
                       {Object.keys(variants[color]).includes("L") && (
                         <option value={"L"}>L</option>
                       )}
+                      ;
                       {Object.keys(variants[color]).includes("XL") && (
                         <option value={"XL"}>XL</option>
                       )}
+                      {/* { for (let i=0; i < Object.keys(variants).length ; i++){
+                          
+                          Object.keys(variants[i]).includes("S") && (
+                            <option value={"S"}>S</option>
+                          );
+                          Object.keys(variants[i]).includes("M") && (
+                            <option value={"M"}>M</option>
+                          );
+                          Object.keys(variants[i]).includes("L") && (
+                            <option value={"L"}>L</option>
+                          );
+                          Object.keys(variants[i]).includes("XL") && (
+                            <option value={"XL"}>XL</option>
+                          );
+                      }} */}
                     </select>
                     <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
                       <svg
@@ -263,6 +290,7 @@ export const getServerSideProps = async (context) => {
   }
 
   let product = await Product.findOne({ slug: context.query.slug });
+
   let variants = await Product.find({ name: product.name });
   let colorSlug = {}; //{color:{size:{slug:"Hello"}}}
   for (let i of variants) {

@@ -26,7 +26,7 @@ const getProduct = async (req, res) => {
       }
     }
   }
-  res.status(200).json({ products });
+  res.status(200).json({ tshirts });
 };
 
 export default connectdb(getProduct);
