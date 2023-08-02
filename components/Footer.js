@@ -37,9 +37,7 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800">
-                    Second Link
-                  </a>
+                  <a className="text-gray-600 hover:text-gray-800">About US</a>
                 </li>
                 <li>
                   <a className="text-gray-600 hover:text-gray-800">
